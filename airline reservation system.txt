@@ -55,7 +55,7 @@ public class Main {
 
                 }
 
-                System.out.println("Press n to exit our system or any other letter if you want to continue");
+                System.out.println("Press n to exit our system or any other letter if you want to continue Booking seats.");
                 if (input.next().charAt(0) == 'n') {
                     System.out.println("Exiting the reservation system");
                     break;
