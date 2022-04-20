@@ -1,0 +1,184 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Book1 B1 = new Book1();
+        Book2 B2 = new Book2();
+
+        while (true) {
+
+            System.out.println("Which Library you want to access:");
+            System.out.println("1. Library 1");
+            System.out.println("2. Library 2");
+            System.out.println("3. Exit");
+            Scanner in = new Scanner(System.in);
+            int option = in.nextInt();
+            if (option == 1) {
+                System.out.println("you have entered Library 1");
+
+                while (true) {
+
+                    System.out.println("Enter your choice from among the 5 options:");
+                    System.out.println("1. Add");
+                    System.out.println("2. Print the available books");
+                    System.out.println("3. Borrow Book");
+                    System.out.println("4. Return Book");
+                    System.out.println("5. Exit");
+
+                    Scanner input = new Scanner(System.in);
+
+
+                    int choice = input.nextInt();
+                    if (choice == 1) {
+                        B1.addBook();
+                    } else if (choice == 2) {
+                        B1.printBook();
+                    } else if (choice == 3) {
+                        B1.borrowBook();
+                    } else if (choice == 4) {
+                        B1.returnBook();
+                    } else if (choice == 5) {
+                        System.out.println("Thank you for visiting our library");
+                        break;
+                    }else
+                        System.out.println("Invalid choice.");
+                }
+            } else if (option == 2) {
+
+                System.out.println("You have entered in Library 2");
+                while (true) {
+
+                    System.out.println("Enter your choice from among the 5 options:");
+                    System.out.println("1. Add");
+                    System.out.println("2. Print the available books");
+                    System.out.println("3. Borrow Book");
+                    System.out.println("4. Return Book");
+                    System.out.println("5. Exit");
+
+                    Scanner input = new Scanner(System.in);
+
+
+                    int choice = input.nextInt();
+                    if (choice == 1) {
+                        B2.addBook();
+                    } else if (choice == 2) {
+                        B2.printBook();
+                    } else if (choice == 3) {
+                        B2.borrowBook();
+                    } else if (choice == 4) {
+                        B2.returnBook();
+                    } else if (choice == 5) {
+                        System.out.println("Thank you for visiting our library");
+                        break;
+                    } else
+                        System.out.println("Invalid Choice");
+                }
+
+            } else if(option==3) {
+                System.out.println("Exiting the Library Database. Have a nice Day!! ");
+                break;
+
+            }
+            else
+                System.out.println("Invalid Choice.");
+
+        }
+    }
+}
+
+    // write your code here
+
+
+    class Library1 {
+        ArrayList<String> Books = new ArrayList<>();
+
+        Scanner input = new Scanner(System.in);
+
+        void addBook() {
+            System.out.println("Enter the name of the book that you want to add to the library");
+            String B = input.nextLine();
+            Books.add(B);
+            System.out.println("The book has been added");
+        }
+
+        void printBook() {
+            System.out.println("The available books are");
+             System.out.println(Books);
+
+
+            }
+
+        }
+
+        class Book1 extends Library1 {
+            void borrowBook() {
+                System.out.println("Which book you would like to borrow:");
+                String isthere = input.nextLine();
+                if (Books.contains(isthere)) {
+                    Books.remove(String.valueOf(isthere));
+                    System.out.println("The book has been issued.");
+                    System.out.println("Remember to return it on time!! Thank you.");
+                } else
+                    System.out.println("Sad!! This book is not available");
+            }
+
+            void returnBook() {
+                System.out.println("Name of the book that needs to be returned:");
+                String issued = input.nextLine();
+                if (Books.contains(issued)) {
+                    System.out.println("Invalid entry.");
+                } else {
+                    Books.add(issued);
+                    System.out.println("Thank you for returning the book.");
+                }
+
+            }
+        }
+
+
+        class Library2 {
+            ArrayList<String> Books = new ArrayList<>();
+
+            Scanner input = new Scanner(System.in);
+
+            void addBook() {
+                System.out.println("Enter the name of the book that you want to add to the library");
+                String B = input.nextLine();
+                Books.add(B);
+                System.out.println("The book has been added");
+            }
+
+            void printBook() {
+                System.out.println("The available books are");
+                      System.out.println(Books);
+                        System.out.println();
+
+                    }
+                }
+
+        class Book2 extends Library2 {
+            void borrowBook() {
+                System.out.println("Which book you would like to borrow:");
+                String isthere = input.nextLine();
+                if (Books.contains(isthere)) {
+                    Books.remove(String.valueOf(isthere));
+                    System.out.println("The book has been issued.");
+                    System.out.println("Remember to return it on time. Thank you.");
+                } else
+                    System.out.println("Sad!! This book is not available");
+            }
+
+            void returnBook() {
+                System.out.println("Name of the book that needs to be returned:");
+                String issued = input.nextLine();
+                if (Books.contains(issued)) {
+                    System.out.println("Invalid entry.");
+                } else {
+                    Books.add(issued);
+                    System.out.println("Thank you for returning the book.");
+                }
+
+            }
+        }
