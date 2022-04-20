@@ -48,7 +48,7 @@ public class Main {
                 
 
                     default: {
-                        System.out.println("Not a valid option");
+                        System.out.println("Not a valid option. Please choose from given options.");
 
                         break;
                     }
