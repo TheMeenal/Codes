@@ -1,0 +1,128 @@
+package com.TokyoManji;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        airlineReservation A1 = new airlineReservation();
+        boolean option=true;
+
+
+        while (option) {
+            System.out.println("Welcome to TokyoManji Airlines");
+            System.out.println("In which class would you like to book seats");
+            System.out.println("1. First Class");
+            System.out.println("2. Economy Class");
+
+            Scanner input = new Scanner(System.in);
+
+
+            System.out.println("Please enter your desired class:");
+            int passangerclass = input.nextInt();
+            switch (passangerclass) {
+                case 1: {
+                    System.out.println("You have entered First class Reservation section");
+                    System.out.println("Type y if you want to reserve seat in this Class");
+
+                    if ((input.next().charAt(0) == 'y')) {
+                        A1.firstClassBooking();
+                        break;
+                    } else
+                        break;
+                }
+                case 2: {
+                    System.out.println("You have entered Economy Class Reservation Section");
+                    {
+                        System.out.println("Type y if you want to reserve seat in this Class");
+                        if ((input.next().charAt(0) == 'y')) {
+                            A1.economyClassBooking();
+                            break;
+                        }
+                        else
+                            break;
+
+
+                    }
+                }
+                case 3: break;
+
+                    default: {
+                        System.out.println("Not a valid option");
+
+                        break;
+                    }
+
+                }
+
+
+            }
+        }
+
+    }
+
+
+
+class airlineReservation{
+
+    boolean seats[] = new boolean[20];
+    Scanner input = new Scanner(System.in);
+
+     void firstClassBooking() {
+
+
+        for (int i = 1; i <= 5; i++) {
+            if (seats[i]==false) {
+                System.out.println("Please enter your full name:");
+                String name=input.nextLine();
+
+                seats[i] = true;
+                System.out.println("Congartulations!! Your ticket has been booked");
+                System.out.println(name+" Your seat number is," + i);
+                break;
+            } else if (seats[5]==true) {
+                if (seats[10]==true)
+                    System.out.println("We apolozise..seats are full");
+                else {
+                    System.out.println("Sorry! First class tickets are booked. Would you like to book seats in another class?");
+                    if ((input.next().charAt(0) == 'y'))
+                        break;
+                    else
+                        System.out.println("Please look for another flight!! Arigatou Gozaimasu!!");
+                }
+            }
+        }
+    }
+
+
+    void economyClassBooking() {
+
+
+        for (int i = 1; i <= 5; i++) {
+
+            if (seats[i] == false) {
+                System.out.println("Please enter your full name:");
+                String name=input.nextLine();
+
+                seats[i] = true;
+                System.out.println("your ticket has been booked");
+                System.out.println("Your seat number is," + i);
+                break;
+            } else if (seats[5] == true) {
+                if (seats[10] == true)
+                    System.out.println("We apolozise..seats are full");
+                else {
+                    System.out.println("Sorry! First class tickets are booked. Would you like to book seats in another class?");
+                    if ((input.next().charAt(0) == 'y'))
+                        break;
+                    else
+                        System.out.println("Please look for another flight!! Arigatou Gozaimasu!!");
+
+                }
+            }
+        }
+    }
+}
+
+
+
