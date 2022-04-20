@@ -6,123 +6,128 @@ public class Main {
 
     public static void main(String[] args) {
         airlineReservation A1 = new airlineReservation();
-        boolean option=true;
+        boolean option = true;
+        System.out.println("Welcome to TokyoManji Airlines");
+        System.out.println("Press y if you would like to book tickets with us");
+        Scanner input = new Scanner(System.in);
+        if ((input.next().charAt(0) == 'y')) {
+
+            while (option) {
+                System.out.println("Welcome to TokyoManji Airlines");
+
+                System.out.println("In which class would you like to book seats");
+                System.out.println("1. First Class");
+                System.out.println("2. Economy Class");
 
 
-        while (option) {
-            System.out.println("Welcome to TokyoManji Airlines");
-            System.out.println("In which class would you like to book seats");
-            System.out.println("1. First Class");
-            System.out.println("2. Economy Class");
-
-            Scanner input = new Scanner(System.in);
-
-
-            System.out.println("Please enter your desired class:");
-            int passangerclass = input.nextInt();
-            switch (passangerclass) {
-                case 1: {
-                    System.out.println("You have entered First class Reservation section");
-                    System.out.println("Type y if you want to reserve seat in this Class");
-
-                    if ((input.next().charAt(0) == 'y')) {
-                        A1.firstClassBooking();
-                        break;
-                    } else
-                        break;
-                }
-                case 2: {
-                    System.out.println("You have entered Economy Class Reservation Section");
-                    {
+                System.out.println("Please enter your desired class:");
+                int passangerclass = input.nextInt();
+                switch (passangerclass) {
+                    case 1: {
+                        System.out.println("You have entered First class Reservation section");
                         System.out.println("Type y if you want to reserve seat in this Class");
+
                         if ((input.next().charAt(0) == 'y')) {
-                            A1.economyClassBooking();
+                            A1.firstClassBooking();
                             break;
-                        }
-                        else
+                        } else
                             break;
-
-
                     }
-                }
-                
+                    case 2: {
+                        System.out.println("You have entered Economy Class Reservation Section");
+                        {
+                            System.out.println("Type y if you want to reserve seat in this Class");
+                            if ((input.next().charAt(0) == 'y')) {
+                                A1.economyClassBooking();
+                                break;
+                            } else
+                                break;
+
+
+                        }
+                    }
 
                     default: {
-                        System.out.println("Not a valid option. Please choose from given options.");
+                        System.out.println("Not a valid option");
 
                         break;
                     }
 
                 }
 
-
-            }
-        }
-
-    }
-
-
-
-class airlineReservation{
-
-    boolean seats[] = new boolean[20];
-    Scanner input = new Scanner(System.in);
-
-     void firstClassBooking() {
-
-
-        for (int i = 1; i <= 5; i++) {
-            if (seats[i]==false) {
-                System.out.println("Please enter your full name:");
-                String name=input.nextLine();
-
-                seats[i] = true;
-                System.out.println("Congartulations!! Your ticket has been booked");
-                System.out.println(name+" Your seat number is," + i);
-                break;
-            } else if (seats[5]==true) {
-                if (seats[10]==true)
-                    System.out.println("We apolozise..seats are full");
-                else {
-                    System.out.println("Sorry! First class tickets are booked. Would you like to book seats in another class?");
-                    if ((input.next().charAt(0) == 'y'))
-                        break;
-                    else
-                        System.out.println("Please look for another flight!! Arigatou Gozaimasu!!");
+                System.out.println("Press n to exit our system or any other letter if you want to continue");
+                if (input.next().charAt(0) == 'n') {
+                    System.out.println("Exiting the reservation system");
+                    break;
                 }
-            }
-        }
-    }
 
-
-    void economyClassBooking() {
-
-
-        for (int i = 1; i <= 5; i++) {
-
-            if (seats[i] == false) {
-                System.out.println("Please enter your full name:");
-                String name=input.nextLine();
-
-                seats[i] = true;
-                System.out.println("your ticket has been booked");
-                System.out.println("Your seat number is," + i);
-                break;
-            } else if (seats[5] == true) {
-                if (seats[10] == true)
-                    System.out.println("We apolozise..seats are full");
-                else {
-                    System.out.println("Sorry! First class tickets are booked. Would you like to book seats in another class?");
-                    if ((input.next().charAt(0) == 'y'))
-                        break;
-                    else
-                        System.out.println("Please look for another flight!! Arigatou Gozaimasu!!");
-
-                }
             }
         }
     }
 }
+
+    class airlineReservation {
+
+        boolean seats[] = new boolean[20];
+        Scanner input = new Scanner(System.in);
+
+        void firstClassBooking() {
+
+
+            for (int i = 1; i <= 5; i++) {
+                if (seats[i] == false) {
+                    System.out.println("Please enter your full name:");
+                    String name = input.nextLine();
+
+                    seats[i] = true;
+                    System.out.println("Congartulations!! Your ticket has been booked");
+                    System.out.println(name + " Your seat number is," + i);
+                    break;
+                } else if (seats[5] == true) {
+                    if (seats[10] == true)
+                        System.out.println("We apolozise..seats are full");
+                    else {
+                        System.out.println("Sorry! First class tickets are booked. Would you like to book seats in another class?");
+                        if ((input.next().charAt(0) == 'y'))
+                            break;
+                        else
+                            System.out.println("Please look for another flight!! Arigatou Gozaimasu!!");
+                        break;
+                    }
+                }
+            }
+        }
+
+
+        void economyClassBooking() {
+
+
+            for (int i = 1; i <= 5; i++) {
+
+                if (seats[i] == false) {
+                    System.out.println("Please enter your full name:");
+                    String name = input.nextLine();
+
+                    seats[i] = true;
+                    System.out.println("your ticket has been booked");
+                    System.out.println("Your seat number is," + i);
+                    break;
+                } else if (seats[5] == true) {
+                    if (seats[10] == true)
+                        System.out.println("We apolozise..seats are full");
+                    else {
+                        System.out.println("Sorry! First class tickets are booked. Would you like to book seats in another class?");
+                        if ((input.next().charAt(0) == 'y'))
+                            break;
+                        else
+                            System.out.println("Please look for another flight!! Arigatou Gozaimasu!!");
+                        break;
+
+                    }
+                }
+            }
+        }
+    }
 
 
 
